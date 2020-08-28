@@ -2,16 +2,12 @@ cmake_minimum_required(VERSION 3.5)
 
 project(volt_ge_engine)
 
-if(NOT CMAKE_BUILD_TYPE)
-    set(CMAKE_BUILD_TYPE Debug)
-endif()
-
 # Setup Conan
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
 message(STATUS "Libs: ${CONAN_LIBS}")
 
-# Add in volt_net
+# Add in volt_ge
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/volt_ge/)
 
 # Add in volt_event

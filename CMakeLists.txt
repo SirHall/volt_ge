@@ -1,11 +1,10 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(volt_ge_engine)
+include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/volt_hunt.cmake)
 
-# Setup Conan
-include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-conan_basic_setup()
-message(STATUS "Libs: ${CONAN_LIBS}")
+# set(CMAKE_INSTALL_PREFIX "${CMAKE_CURRENT_BINARY_DIR}/inst/") # For testing
+
+project(volt_ge VERSION 0.0.1)
 
 # Add in volt_ge
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/volt_ge/)

@@ -6,9 +6,6 @@ include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/volt_hunt.cmake)
 
 project(volt_ge VERSION 0.0.1)
 
-# Add in volt_ge
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/volt_ge/)
-
 ### ------ Packages ------ ###
 
 # Boost
@@ -45,3 +42,25 @@ find_package(stb CONFIG REQUIRED)
 hunter_add_package(Lua)
 find_package(Lua CONFIG REQUIRED)
 
+set(VOLT_GE_LINK_LIBS
+    glm
+    Boost::boost
+    Boost::system
+    Boost::filesystem
+    glew::glew
+    glfw
+    volt_event
+    volt_gfx
+    volt_net
+    bullet::Bullet3Common
+    bullet::BulletCollision
+    bullet::BulletDynamics
+    bullet::BulletInverseDynamics
+    bullet::BulletSoftBody
+    bullet::LinearMath
+    # EnTT::EnTT
+    stb::stb
+    Lua::lua_lib
+)
+
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/volt_ge)

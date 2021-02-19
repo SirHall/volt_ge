@@ -1,7 +1,0 @@
-[requires]
-volt_net/0.0.1@volt/dev
-volt_gfx/0.0.1@volt/dev
-volt_event/0.0.1@volt/dev
-
-[generators]
-cmake

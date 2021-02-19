@@ -3,18 +3,15 @@ cmake_minimum_required(VERSION 3.5)
 # Find all source files
 file(GLOB_RECURSE VOLT_GE_SRCS
     "src/*.cpp"
+    "src/*.c"
     RELATIVE_PATH
 )
-
-
-hunter_add_package(volt_net)
-find_package(volt_net CONFIG REQUIRED)
 
 find_package (Threads)
 
 add_library(volt_ge ${VOLT_GE_SRCS})
 target_include_directories(volt_ge PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>")
-target_link_libraries(volt_ge ${CMAKE_THREAD_LIBS_INIT} volt_net)
+target_link_libraries(volt_ge PUBLIC ${CMAKE_THREAD_LIBS_INIT} ${VOLT_GE_LINK_LIBS})
 set_property(TARGET volt_ge PROPERTY CXX_STANDARD 17)
 
 
